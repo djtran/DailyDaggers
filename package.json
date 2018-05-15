@@ -1,0 +1,16 @@
+{
+  "name": "daily-daggers",
+  "version": "1.0.0",
+  "description": "Gamify your life!",
+  "main": "index.js",
+  "scripts": {
+    "create": "claudia create --configure-alexa-skill --region us-east-1 --api-module bot --cache-api-config apiConfig",
+    "update": "claudia update --cache-api-config apiConfig"
+  },
+  "author": "David J. Tran (https://djtran.info)",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.239.1",
+    "claudia-bot-builder": "^4.0.0"
+  }
+}

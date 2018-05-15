@@ -1,0 +1,95 @@
+//Example Create Task Request
+{
+  "version": "1.0",
+  "session": {
+    "new": true,
+    "sessionId": "amzn1.echo-api.session.ccdcb5ad-1aa8-471f-93bc-9570bd6227d1",
+    "application": {
+      "applicationId": "amzn1.ask.skill.id.goes.here"
+    },
+    "user": {
+      "userId": "some.really.long.user.id.goes.HERE"
+    }
+  },
+  "context": {
+    "AudioPlayer": {
+      "playerActivity": "IDLE"
+    },
+    "Display": {},
+    "System": {
+      "application": {
+        "applicationId": "amzn1.ask.skill.id.goes.here"
+      },
+      "user": {
+        "userId": "some.really.long.user.id.goes.HERE"
+      },
+      "device": {
+        //Alexa simulator device ID
+        "deviceId": "amzn1.ask.device.AFZ32DRHCMIWJ5NJH5VUFNPAF23TRK6QT6AZAOIJ4NC7RRLROQAP5EDNWL6GAOTQ53OELQ4O4UMJG36C454AHMIE6YOCV3KDGPRDWGDW2P47Z5C3JZ32VPO7WX4MON5SDJIVTJSB35LOEB5X6THCHC6WSFCULEX56FJ2ZF364T2KPUZ6LZOO2",
+        "supportedInterfaces": {
+          "AudioPlayer": {},
+          "Display": {
+            "templateVersion": "1.0",
+            "markupVersion": "1.0"
+          }
+        }
+      },
+      "apiEndpoint": "https://api.amazonalexa.com",
+      "apiAccessToken": "API.ACCESS.TOKEN.GOES.HERE"
+    }
+  },
+  "request": {
+    "type": "IntentRequest",
+    "requestId": "amzn1.echo-api.request.4b07ae36-0486-49d2-9954-360393647d17",
+    "timestamp": "2018-05-15T01:30:36Z",
+    "locale": "en-US",
+    "intent": {
+      "name": "CreateTask",
+      "confirmationStatus": "NONE",
+      "slots": {
+        "Ability": {
+          "name": "Ability",
+          "value": "strength",
+          "resolutions": {
+            "resolutionsPerAuthority": [
+              {
+                "authority": "amzn1.er-authority.echo-sdk.amzn1.ask.skill.id.goes.here.AbilityType",
+                "status": {
+                  "code": "ER_SUCCESS_MATCH"
+                },
+                "values": [
+                  {
+                    "value": {
+                      "name": "Strength",
+                      "id": "5a455a612047a34ede7a6c564fa67c0a"
+                    }
+                  },
+                  {
+                    "value": {
+                      "name": "Intelligence",
+                      "id": "8f7ba58961e0fe40cfda61b412537fba"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "confirmationStatus": "NONE"
+        },
+        "Description": {
+          "name": "Description",
+          "confirmationStatus": "NONE"
+        },
+        "TargetDate": {
+          "name": "TargetDate",
+          "confirmationStatus": "NONE"
+        },
+        "Difficulty": {
+          "name": "Difficulty",
+          "confirmationStatus": "NONE"
+        }
+      }
+    },
+    "dialogState": "STARTED"
+  }
+}

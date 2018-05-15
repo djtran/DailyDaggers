@@ -1,0 +1,40 @@
+{
+  "user": "user-id-goes-here",
+  "stats": {
+    "level": 1,
+    "strength": 8,
+    "dexterity": 14,
+    "intelligence": 15,
+    "wisdom": 10,
+    "constitution": 12,
+    "charisma": 13,
+    "experience": 0
+  },
+  "open": ["id2", "id3"],
+  "quests": [
+    {
+      "id":"incremental id or uuid",
+      "styled-title": "Verbing the Noun",
+      "description": "User's description",
+      "difficulty": "LOW",
+    },
+    {
+      "id":"id1",
+      "styled-title": "Verbing the Noun",
+      "description": "User's description",
+      "difficulty": "MEDIUM",
+    },
+    {
+      "id":"id2",
+      "styled-title": "Verbing the Noun",
+      "description": "User's description",
+      "difficulty": "HARD",
+    },
+    {
+      "id":"id3",
+      "styled-title": "Verbing the Noun",
+      "description": "User's description",
+      "difficulty": "EXPERT",
+    }
+  ]
+}

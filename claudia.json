@@ -1,0 +1,11 @@
+{
+  "lambda": {
+    "role": "daily-daggers-executor",
+    "name": "daily-daggers",
+    "region": "us-east-1"
+  },
+  "api": {
+    "id": "8f840bmw1k",
+    "module": "bot"
+  }
+}
