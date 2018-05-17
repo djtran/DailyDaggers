@@ -1,0 +1,110 @@
+{
+  "version": "1.0",
+  "session": {
+    "new": false,
+    "sessionId": "amzn1.echo-api.session.0d42be78-b1e1-4591-83f8-ce46301b0349",
+    "application": {
+      "applicationId": "amzn1.ask.skill.91f91ece-b982-4d1b-958f-eba7c2dcee2a"
+    },
+    "user": {
+      "userId": "amzn1.ask.account.AGVQS2QETWDUIEOZIZ7ACVHBEO5J6LHC3AIBFIY4QYXQA5BDISYTAOZRYNTT7GCBKNBDNJNWZPWY3IXQ5TKOSCLMAROBRAIBZE5J4VXOSLGZKLMXKXBHWP4GD7JZTYXTZVPCC4PZ5U5RANXAUCXIGVWOEBMHDPMVCUVWCZBASQAZZYTNKGXDU36E6BSGKU7PREZ2PF6QRLLD5NI"
+    }
+  },
+  "context": {
+    "AudioPlayer": {
+      "playerActivity": "IDLE"
+    },
+    "Display": {
+      "token": ""
+    },
+    "System": {
+      "application": {
+        "applicationId": "amzn1.ask.skill.91f91ece-b982-4d1b-958f-eba7c2dcee2a"
+      },
+      "user": {
+        "userId": "amzn1.ask.account.AGVQS2QETWDUIEOZIZ7ACVHBEO5J6LHC3AIBFIY4QYXQA5BDISYTAOZRYNTT7GCBKNBDNJNWZPWY3IXQ5TKOSCLMAROBRAIBZE5J4VXOSLGZKLMXKXBHWP4GD7JZTYXTZVPCC4PZ5U5RANXAUCXIGVWOEBMHDPMVCUVWCZBASQAZZYTNKGXDU36E6BSGKU7PREZ2PF6QRLLD5NI"
+      },
+      "device": {
+        "deviceId": "amzn1.ask.device.AFZ32DRHCMIWJ5NJH5VUFNPAF23TRK6QT6AZAOIJ4NC7RRLROQAP5EDNWL6GAOTQ53OELQ4O4UMJG36C454AHMIE6YOCV3KDGPRDWGDW2P47Z5C3JZ32VPO7WX4MON5SDJIVTJSB35LOEB5X6THCHC6WSFCULEX56FJ2ZF364T2KPUZ6LZOO2",
+        "supportedInterfaces": {
+          "AudioPlayer": {},
+          "Display": {
+            "templateVersion": "1.0",
+            "markupVersion": "1.0"
+          }
+        }
+      },
+      "apiEndpoint": "https://api.amazonalexa.com",
+      "apiAccessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjEifQ.eyJhdWQiOiJodHRwczovL2FwaS5hbWF6b25hbGV4YS5jb20iLCJpc3MiOiJBbGV4YVNraWxsS2l0Iiwic3ViIjoiYW16bjEuYXNrLnNraWxsLjkxZjkxZWNlLWI5ODItNGQxYi05NThmLWViYTdjMmRjZWUyYSIsImV4cCI6MTUyNjQyMzI1MywiaWF0IjoxNTI2NDE5NjUzLCJuYmYiOjE1MjY0MTk2NTMsInByaXZhdGVDbGFpbXMiOnsiY29uc2VudFRva2VuIjpudWxsLCJkZXZpY2VJZCI6ImFtem4xLmFzay5kZXZpY2UuQUZaMzJEUkhDTUlXSjVOSkg1VlVGTlBBRjIzVFJLNlFUNkFaQU9JSjROQzdSUkxST1FBUDVFRE5XTDZHQU9UUTUzT0VMUTRPNFVNSkczNkM0NTRBSE1JRTZZT0NWM0tER1BSRFdHRFcyUDQ3WjVDM0paMzJWUE83V1g0TU9ONVNESklWVEpTQjM1TE9FQjVYNlRIQ0hDNldTRkNVTEVYNTZGSjJaRjM2NFQyS1BVWjZMWk9PMiIsInVzZXJJZCI6ImFtem4xLmFzay5hY2NvdW50LkFHVlFTMlFFVFdEVUlFT1pJWjdBQ1ZIQkVPNUo2TEhDM0FJQkZJWTRRWVhRQTVCRElTWVRBT1pSWU5UVDdHQ0JLTkJETkpOV1pQV1kzSVhRNVRLT1NDTE1BUk9CUkFJQlpFNUo0VlhPU0xHWktMTVhLWEJIV1A0R0Q3SlpUWVhUWlZQQ0M0UFo1VTVSQU5YQVVDWElHVldPRUJNSERQTVZDVVZXQ1pCQVNRQVpaWVROS0dYRFUzNkU2QlNHS1U3UFJFWjJQRjZRUkxMRDVOSSJ9fQ.DLwnQQbAPNTn6kAnkv0uzHP-ZthDRyviOiKne33Uo7I5uJt5aJaSd8HW4cyXymG-p45lQOxm4noewk362614xjxt2hSguumtszsSL-xbdqXu7p4Nw_u25YNQkZM3w7loXgeeMuoPCOf0cLX3MtOrWsYXNn7iz_hDCgsJbMcIsrFez4KQ5CAIL4AkR9CFK5PwYKYYaMOrwEDr2MY5F0rH7-Oluo7_FVhHiFO0jfM_D5nTQ5vtUn-4E2UCS670FLs8Jlrr5glRnn5pPVAJQCo4jNVz6TjDQbiQVHmMEo7EUe2yZXzxgO7xbHZQB48lhKpy_rR-EoggiRf2XruEOMZvgQ"
+    }
+  },
+  "request": {
+    "type": "IntentRequest",
+    "requestId": "amzn1.echo-api.request.12fddf8a-2c1d-4d04-ae63-ce1d19442b7f",
+    "timestamp": "2018-05-15T21:27:33Z",
+    "locale": "en-US",
+    "intent": {
+      "name": "CreateTask",
+      "confirmationStatus": "NONE",
+      "slots": {
+        "Ability": {
+          "name": "Ability",
+          "value": "intelligence",
+          "resolutions": {
+            "resolutionsPerAuthority": [
+              {
+                "authority": "amzn1.er-authority.echo-sdk.amzn1.ask.skill.91f91ece-b982-4d1b-958f-eba7c2dcee2a.AbilityType",
+                "status": {
+                  "code": "ER_SUCCESS_MATCH"
+                },
+                "values": [
+                  {
+                    "value": {
+                      "name": "Intelligence",
+                      "id": "8f7ba58961e0fe40cfda61b412537fba"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "confirmationStatus": "NONE"
+        },
+        "Description": {
+          "name": "Description",
+          "value": "gamedays ruin lives",
+          "confirmationStatus": "CONFIRMED"
+        },
+        "TargetDate": {
+          "name": "TargetDate",
+          "value": "2018-05-16",
+          "confirmationStatus": "NONE"
+        },
+        "Difficulty": {
+          "name": "Difficulty",
+          "value": "big",
+          "resolutions": {
+            "resolutionsPerAuthority": [
+              {
+                "authority": "amzn1.er-authority.echo-sdk.amzn1.ask.skill.91f91ece-b982-4d1b-958f-eba7c2dcee2a.Difficulty",
+                "status": {
+                  "code": "ER_SUCCESS_MATCH"
+                },
+                "values": [
+                  {
+                    "value": {
+                      "name": "Hard",
+                      "id": "3656183169810334a96b91129dc9d881"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "confirmationStatus": "NONE"
+        }
+      }
+    },
+    "dialogState": "IN_PROGRESS"
+  }
+}

@@ -1,30 +1,30 @@
-//Example Create Task Request
 {
   "version": "1.0",
   "session": {
     "new": true,
-    "sessionId": "amzn1.echo-api.session.ccdcb5ad-1aa8-471f-93bc-9570bd6227d1",
+    "sessionId": "amzn1.echo-api.session.705596fa-01e5-4c3e-a6c4-4277250353a5",
     "application": {
-      "applicationId": "amzn1.ask.skill.id.goes.here"
+      "applicationId": "amzn1.ask.skill.91f91ece-b982-4d1b-958f-eba7c2dcee2a"
     },
     "user": {
-      "userId": "some.really.long.user.id.goes.HERE"
+      "userId": "amzn1.ask.account.AGVQS2QETWDUIEOZIZ7ACVHBEO5J6LHC3AIBFIY4QYXQA5BDISYTAOZRYNTT7GCBKNBDNJNWZPWY3IXQ5TKOSCLMAROBRAIBZE5J4VXOSLGZKLMXKXBHWP4GD7JZTYXTZVPCC4PZ5U5RANXAUCXIGVWOEBMHDPMVCUVWCZBASQAZZYTNKGXDU36E6BSGKU7PREZ2PF6QRLLD5NI"
     }
   },
   "context": {
     "AudioPlayer": {
       "playerActivity": "IDLE"
     },
-    "Display": {},
+    "Display": {
+      "token": ""
+    },
     "System": {
       "application": {
-        "applicationId": "amzn1.ask.skill.id.goes.here"
+        "applicationId": "amzn1.ask.skill.91f91ece-b982-4d1b-958f-eba7c2dcee2a"
       },
       "user": {
-        "userId": "some.really.long.user.id.goes.HERE"
+        "userId": "amzn1.ask.account.AGVQS2QETWDUIEOZIZ7ACVHBEO5J6LHC3AIBFIY4QYXQA5BDISYTAOZRYNTT7GCBKNBDNJNWZPWY3IXQ5TKOSCLMAROBRAIBZE5J4VXOSLGZKLMXKXBHWP4GD7JZTYXTZVPCC4PZ5U5RANXAUCXIGVWOEBMHDPMVCUVWCZBASQAZZYTNKGXDU36E6BSGKU7PREZ2PF6QRLLD5NI"
       },
       "device": {
-        //Alexa simulator device ID
         "deviceId": "amzn1.ask.device.AFZ32DRHCMIWJ5NJH5VUFNPAF23TRK6QT6AZAOIJ4NC7RRLROQAP5EDNWL6GAOTQ53OELQ4O4UMJG36C454AHMIE6YOCV3KDGPRDWGDW2P47Z5C3JZ32VPO7WX4MON5SDJIVTJSB35LOEB5X6THCHC6WSFCULEX56FJ2ZF364T2KPUZ6LZOO2",
         "supportedInterfaces": {
           "AudioPlayer": {},
@@ -35,13 +35,13 @@
         }
       },
       "apiEndpoint": "https://api.amazonalexa.com",
-      "apiAccessToken": "API.ACCESS.TOKEN.GOES.HERE"
+      "apiAccessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjEifQ.eyJhdWQiOiJodHRwczovL2FwaS5hbWF6b25hbGV4YS5jb20iLCJpc3MiOiJBbGV4YVNraWxsS2l0Iiwic3ViIjoiYW16bjEuYXNrLnNraWxsLjkxZjkxZWNlLWI5ODItNGQxYi05NThmLWViYTdjMmRjZWUyYSIsImV4cCI6MTUyNjM5NzA3OCwiaWF0IjoxNTI2MzkzNDc4LCJuYmYiOjE1MjYzOTM0NzgsInByaXZhdGVDbGFpbXMiOnsiY29uc2VudFRva2VuIjpudWxsLCJkZXZpY2VJZCI6ImFtem4xLmFzay5kZXZpY2UuQUZaMzJEUkhDTUlXSjVOSkg1VlVGTlBBRjIzVFJLNlFUNkFaQU9JSjROQzdSUkxST1FBUDVFRE5XTDZHQU9UUTUzT0VMUTRPNFVNSkczNkM0NTRBSE1JRTZZT0NWM0tER1BSRFdHRFcyUDQ3WjVDM0paMzJWUE83V1g0TU9ONVNESklWVEpTQjM1TE9FQjVYNlRIQ0hDNldTRkNVTEVYNTZGSjJaRjM2NFQyS1BVWjZMWk9PMiIsInVzZXJJZCI6ImFtem4xLmFzay5hY2NvdW50LkFHVlFTMlFFVFdEVUlFT1pJWjdBQ1ZIQkVPNUo2TEhDM0FJQkZJWTRRWVhRQTVCRElTWVRBT1pSWU5UVDdHQ0JLTkJETkpOV1pQV1kzSVhRNVRLT1NDTE1BUk9CUkFJQlpFNUo0VlhPU0xHWktMTVhLWEJIV1A0R0Q3SlpUWVhUWlZQQ0M0UFo1VTVSQU5YQVVDWElHVldPRUJNSERQTVZDVVZXQ1pCQVNRQVpaWVROS0dYRFUzNkU2QlNHS1U3UFJFWjJQRjZRUkxMRDVOSSJ9fQ.eYn6B0eWeY1IRnd84eAKS4Yu6bZHwvN7f5DX5A5V4Lrj_di-dHZz2ZGWuo_Uo5nIBhdohj5iQX6VmthD2l7HKqamroKvhFAQmMU1whQ2HPqzwd-xoDHhgfcDu0S-jLZb68AUWQH4s4s_M5_d3_MPqg6szvKNhqRbQ08Go1Yd3QVPp2uvgGaSf7HOHzMSdmSFuizHLVqW6RL-ZRp6aotu3Rub1lR7iJnW1luEwNhAS3UMcPqPk35qTBGM0j7ZL3WuPf0cVIzdgvPcyyu_vpUzLyL_LOgIUxnOeuMKqAMXqhrkujXF0OLGNwGGpAqxAA5ozS_uKifwt2tNa8mVKnzITQ"
     }
   },
   "request": {
     "type": "IntentRequest",
-    "requestId": "amzn1.echo-api.request.4b07ae36-0486-49d2-9954-360393647d17",
-    "timestamp": "2018-05-15T01:30:36Z",
+    "requestId": "amzn1.echo-api.request.3d8b64a9-1529-4d0d-be5c-7355b12f67db",
+    "timestamp": "2018-05-15T14:11:18Z",
     "locale": "en-US",
     "intent": {
       "name": "CreateTask",
@@ -49,31 +49,6 @@
       "slots": {
         "Ability": {
           "name": "Ability",
-          "value": "strength",
-          "resolutions": {
-            "resolutionsPerAuthority": [
-              {
-                "authority": "amzn1.er-authority.echo-sdk.amzn1.ask.skill.id.goes.here.AbilityType",
-                "status": {
-                  "code": "ER_SUCCESS_MATCH"
-                },
-                "values": [
-                  {
-                    "value": {
-                      "name": "Strength",
-                      "id": "5a455a612047a34ede7a6c564fa67c0a"
-                    }
-                  },
-                  {
-                    "value": {
-                      "name": "Intelligence",
-                      "id": "8f7ba58961e0fe40cfda61b412537fba"
-                    }
-                  }
-                ]
-              }
-            ]
-          },
           "confirmationStatus": "NONE"
         },
         "Description": {
