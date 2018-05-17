@@ -80,8 +80,9 @@ const DialogDelegate = {
 const api = botBuilder(
   function (message, originalRequest) {
     'use strict';
-    console.log(message);
-    console.log(originalRequest);
+    console.log("--------------------------------------------");
+    console.log(getIntentName(originalRequest.body));
+    console.log(originalRequest.body);
     var user = originalRequest.body.session.user.userId;
 
     // message.text has all intent placeholders joined together, for quick access
@@ -142,12 +143,12 @@ const api = botBuilder(
             });
           data.Item.open.push(questId);
           params = Object.assign({}, dynamoParamsTemplate, data);
-          console.log("Dynamo Put for " +  + JSON.stringify(params)); 
+          console.log("Dynamo Put for " + JSON.stringify(params)); 
           try {
             return dynamoDb.put(params).promise().then(function(data) {
               console.log("Successfully wrote to Dynamo Table : " + data);
               //Everything worked out fine!
-              return "Great! I'll open a tab on your " + 
+              return "Great! I'll keep a tab on your " + 
               extractSlotValue(originalRequest.body, "Ability") + 
               " quest.";
             }).catch(function(err){
@@ -171,6 +172,55 @@ const api = botBuilder(
     } else if (getIntentName(originalRequest.body) === 'GetTaskInfo') {
     } else if (getIntentName(originalRequest.body) === 'CompleteTask') {
     } else if (getIntentName(originalRequest.body) === 'GetOpenTasks') {
+      var params = Object.assign({}, dynamoParamsTemplate, { Key: { userId: user }});
+      console.log("Dynamo Get for " + JSON.stringify(params))
+      try {
+        return dynamoDb.get(params).promise().then(function(data) {
+          var settings = data.Item.settings;
+          var openIds = data.Item.open;
+          var openTitles = "";
+          console.log(data);
+          console.log(data.Item.quests);
+          for (var i = 0; i < data.Item.quests.length; i++) {
+            var quest = data.Item.quests[i];
+            var index = openIds.findIndex(function(item) { return item === quest.id });
+            console.log(quest);
+            if(index >= 0) {
+              console.log(1)
+              if (settings.styledTitle) {
+                console.log(2)
+                openTitles += (quest.styledTitle);
+              } else {
+                console.log(3)
+                openTitles += (quest.description);
+              }
+              if (index === (openIds.length - 2)) {
+                console.log(4)
+                openTitles += ", and"
+              } else if (index < openIds.length - 2) {
+                console.log(5)
+                openTitles += ", "
+              }
+            }
+          }
+
+          return {
+            response: {
+              outputSpeech: {
+                type: 'PlainText',
+                text: ("These tabs are still open: " + openTitles)
+              },
+              shouldEndSession: false
+            }
+          };
+        }).catch(function(err){
+          console.log("Could not get from DynamoDB : " + err)
+          return "Sorry! Can't seem to find my notebook. Please come back in a bit."
+        });
+      } catch (error) {
+        console.log(error);
+        return "Sorry, I hit an error";
+      }
     } else if (getIntentName(originalRequest.body) === 'CheckStats') {
     } else if (getIntentName(originalRequest.body) === 'GetLevel') {
     } else if (getIntentName(originalRequest.body) === 'Challenge') {
