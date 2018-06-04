@@ -15,8 +15,8 @@
     "charisma": 13,
     "experience": 0
   },
-  "open": [1, 3],
-  "questsToDate": 3
+  "questsToDate": 3,
+  "bangs": 0
 }
 
 {
@@ -28,7 +28,8 @@
     "difficulty": "LOW",
     "stat": "Strength",
     "target": "date-here"
-  }
+  },
+  "status": "closed"
 }
 {
   "userId": "user-id-goes-here",
@@ -39,7 +40,8 @@
     "difficulty": "LOW",
     "stat": "Strength",
     "target": "date-here"
-  }
+  },
+  "status": "open"
 }
 {
   "userId": "user-id-goes-here",
@@ -50,5 +52,6 @@
     "difficulty": "LOW",
     "stat": "Strength",
     "target": "date-here"
-  }
+  },
+  "status": "open"
 }

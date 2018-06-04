@@ -46,10 +46,23 @@ generateTitle = function(Ability, Difficulty) {
     strPrefixes = ["Raid", "Storm", "Demolish", "Destroy", "Take Over", "Repel"],
     intPrefixes = ["Understand", "Research", "Discover", "Study"],
     conPrefixes = ["Resist", "Withstand", "Overcome", "Bolster"], //iffy
-    wisPrefixes = [],
-    chaPrefixes = ["Ally", "Infiltrate", "Build Reputation with", "Placate", "Impersonate"]
-
-
+    wisPrefixes = ["Reconcile with", "Mediate for", "Empathize with", "Donate to"],
+    chaPrefixes = ["Ally with", "Infiltrate", "Build Reputation with", "Placate", "Impersonate"];
+  var rand = Math.floor(Math.random() * 100);
+  switch(Ability) {
+    case 'Strength':
+      return strPrefixes[rand%strPrefixes.length] + " the " + generator("miscellaneous", "anime_attacks", 1)[0];
+    case 'Dexterity':
+      return dexPrefixes[rand%dexPrefixes.length] + " the " + generator("towns_and_cities", "apocalypse_towns", 1)[0];
+    case 'Constitution':
+      return conPrefixes[rand%conPrefixes.length] + " the " + generator("miscellaneous", "attack_moves", 1)[0];
+    case 'Intelligence':
+      return intPrefixes[rand%intPrefixes.length] + " the " + generator("weapons", "magic_books", 1)[0];
+    case 'Wisdom':
+      return wisPrefixes[rand%wisPrefixes.length] + " the " + generator("places", "orphanages", 1)[0];
+    case 'Charisma':
+      return chaPrefixes[rand%chaPrefixes.length] + " the " + generator("miscellaneous", "alliances", 1)[0];
+  }
   return "Verbing the Noun"
 },
 DialogDelegate = {
@@ -85,8 +98,8 @@ dynamoItemTemplate = function (newUserId) {
         charisma: 1,
         experience: 0
       },
-      open: [],
-      questsToDate: 0
+      questsToDate: 0,
+      bangs: 0
     }
   }
 },
@@ -95,7 +108,8 @@ dynamoQuestTemplate = function(userId, questId) {
     Item: {
       userId: userId,
       questId: questId,
-      quest: {}
+      quest: {},
+      questStatus: 'open'
     }
   }
 };
@@ -185,7 +199,6 @@ const api = botBuilder(
                 stat: statType,
                 target: extractNonERValue(originalRequest.body, "TargetDate")
               };
-              data.Item.open.push(questId);
               data.Item.questsToDate = questId;
               params = Object.assign({}, dynamoParamsTemplate, data);
               var questParams = Object.assign({}, dynamoQuestsTableTemplate, questData);
@@ -197,11 +210,18 @@ const api = botBuilder(
                   return dynamoDb.put(params).promise().then(function(data) {
                     console.log("Successfully wrote to Dynamo Table");
                     //Everything worked out fine!
-                    return "Great! I'll keep a tab on your " + 
-                    extractSlotValue(originalRequest.body, "Ability") + 
-                    " quest.";
+                    return {
+                      response: {
+                        outputSpeech: {
+                          type: 'PlainText',
+                          text: ("Great! I'll keep a tab on your " + 
+                            extractSlotValue(originalRequest.body, "Ability") + 
+                            " quest.")
+                        },
+                        shouldEndSession: false
+                      }
+                    };
                   });
-
                 }).catch(function(err){
                   console.log("Could not write to DynamoDB : " + err)
                   return "Sorry! Can't seem to find my pen. Write it down and come back in a bit.";
@@ -222,35 +242,34 @@ const api = botBuilder(
               var settings = data.Item.settings;
               var openIds = data.Item.open;
               var queryParams = Object.assign({}, dynamoQuestsTableTemplate, {
-                KeyConditions: {
-                  userId: {
-                    ComparisonOperator: "EQ",
-                    AttributeValueList: [user]
-                  }
-                },
-                QueryFilter: {
-                  questId: {
-                    ComparisonOperator: "EQ",
-                    AttributeValueList: openIds
-                  }
+                KeyConditionExpression: 'userId = :userId',
+                FilterExpression: 'questStatus = :status',
+                ExpressionAttributeValues: {
+                  ":userId": user,
+                  ":status": "open"
                 }
               });
-              dynamoDb.query(queryParams).promise().then(function(data) {
+              console.log("Dynamo Query for " + JSON.stringify(queryParams))
+              return dynamoDb.query(queryParams).promise().then(function(data) {
+                console.log("Query Results: " + JSON.stringify(data))
                 var openTitles = "";
                 for (var i = 0; i < data.Items.length; i++) {
-                  var quest = data.Items[i].quest;
+                  var item = data.Items[i];
+                  var quest = item.quest;
                   console.log(quest);
-                  if(index >= 0) {
-                    if (settings.styledTitle) {
-                      openTitles += (quest.styledTitle);
-                    } else {
-                      openTitles += (quest.description);
-                    }
-                    if (index === (openIds.length - 2)) {
-                      openTitles += ", and"
-                    } else if (index < openIds.length - 2) {
-                      openTitles += ", "
-                    }
+                  //From the filtered query results
+                  //Append Title
+                  if (settings.styledTitle) {
+                    openTitles += ("Quest " + item.questId + ": " +quest.styledTitle);
+                  } else {
+                    openTitles += ("Quest " + item.questId + ": " +quest.description);
+                  }
+
+                  //Comma or Conjuction
+                  if (i === (data.Items.length - 2)) {
+                    openTitles += ", and "
+                  } else if (i < data.Items.length - 2) {
+                    openTitles += ", "
                   }
                 }
 
@@ -258,7 +277,7 @@ const api = botBuilder(
                   response: {
                     outputSpeech: {
                       type: 'PlainText',
-                      text: ("These tabs are still open: " + openTitles)
+                      text: ("These quests are still open: " + openTitles)
                     },
                     shouldEndSession: false
                   }
@@ -278,6 +297,16 @@ const api = botBuilder(
           } else if (getIntentName(originalRequest.body) === 'DeleteTask') {
           } else if (getIntentName(originalRequest.body) === 'Settings'){
           } else if (getIntentName(originalRequest.body) === 'AMAZON.HelpIntent'){
+          } else if (getIntentName(originalRequest.body) === 'AMAZON.FallbackIntent'){
+            return {
+              response: {
+                outputSpeech: {
+                  type: 'PlainText',
+                  text: ("Had something in my ear, could you say that again?")
+                },
+                shouldEndSession: false
+              }
+            }
           } else if (getIntentName(originalRequest.body) === 'AMAZON.StopIntent'){
             // return a JavaScript object to set advanced response params
             // this prevents any packaging from bot builder and is just
