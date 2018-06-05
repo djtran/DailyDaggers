@@ -5,12 +5,14 @@
   "main": "index.js",
   "scripts": {
     "create": "claudia create --configure-alexa-skill --region us-east-1 --api-module bot --cache-api-config apiConfig",
-    "update": "claudia update --cache-api-config apiConfig"
+    "update": "claudia update --cache-api-config apiConfig --version development",
+    "deploy": "claudia set-version --version production"
   },
   "author": "David J. Tran (https://djtran.info)",
   "license": "ISC",
   "dependencies": {
-    "aws-sdk": "^2.239.1",
-    "claudia-bot-builder": "^4.0.0"
+    "aws-sdk": "^2.243.1",
+    "claudia-bot-builder": "^4.0.0",
+    "fantasy-names": "^2.0.0"
   }
 }

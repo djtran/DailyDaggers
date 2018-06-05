@@ -1,4 +1,5 @@
 // arn:aws:dynamodb:us-east-1:220407132106:table/DailyDaggers-test
+//
 {
   "userId": "user-id-goes-here",
   "settings":{
@@ -14,39 +15,43 @@
     "charisma": 13,
     "experience": 0
   },
-  "open": ["id2", "id3"],
-  "quests": [
-    {
-      "id":"incremental id starting at 0",
-      "styledTitle": "Verbing the Noun",
-      "description": "User's description",
-      "difficulty": "LOW",
-      "stat": "Strength",
-      "target": "date-here"
-    },
-    {
-      "id":"0",
-      "styledTitle": "Verbing the Noun",
-      "description": "User's description",
-      "difficulty": "MEDIUM",
-      "stat": "Strength",
-      "target": "date-here"
-    },
-    {
-      "id":"1",
-      "styledTitle": "Verbing the Noun",
-      "description": "User's description",
-      "difficulty": "HARD",
-      "stat": "Strength",
-      "target": "date-here"
-    },
-    {
-      "id":"2",
-      "styledTitle": "Verbing the Noun",
-      "description": "User's description",
-      "difficulty": "EXPERT",
-      "stat": "Strength",
-      "target": "date-here"
-    }
-  ]
+  "questsToDate": 3,
+  "bangs": 0
+}
+
+{
+  "userId": "user-id-goes-here",
+  "questId": 1,
+  "quest": {
+    "styledTitle": "Verbing the Noun",
+    "description": "User's description",
+    "difficulty": "LOW",
+    "stat": "Strength",
+    "target": "date-here"
+  },
+  "status": "closed"
+}
+{
+  "userId": "user-id-goes-here",
+  "questId": 2,
+  "quest": {
+    "styledTitle": "Verbing the Noun",
+    "description": "User's description",
+    "difficulty": "LOW",
+    "stat": "Strength",
+    "target": "date-here"
+  },
+  "status": "open"
+}
+{
+  "userId": "user-id-goes-here",
+  "questId": 3,
+  "quest": {
+    "styledTitle": "Verbing the Noun",
+    "description": "User's description",
+    "difficulty": "LOW",
+    "stat": "Strength",
+    "target": "date-here"
+  },
+  "status": "open"
 }
